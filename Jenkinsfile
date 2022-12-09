@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label 'qa-nodo'
+        label 'qa'
     }
 
     stages {
