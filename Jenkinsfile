@@ -30,15 +30,15 @@ pipeline {
 
         stage('Tag docker image') {
             steps {
-                sh 'docker image tag final-challenge-webapp betillo/final-challenge-webapp:latest'
+                sh 'docker image tag final-challenge-webapp scdel7/final-challenge-webapp:latest'
             }
         }
 
         stage('Upload docker image') {
             steps {
 		withCredentials([string(credentialsId: '', variable: 'docker-credentials')]) {
-		sh 'docker login -u betillo -p ${docker-credentials}'
-		sh 'docker image push betillo/final-challenge-webapp:latest'}        
+		sh 'docker login -u scdel7 -p ${docker-credentials}'
+		sh 'docker image push scdel7/final-challenge-webapp:latest'}        
 	}	
     }
 } 
