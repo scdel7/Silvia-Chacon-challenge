@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label 'final-challenge-pipeline'
+        label 'final-challenge-qa'
     }
 
     stages {
