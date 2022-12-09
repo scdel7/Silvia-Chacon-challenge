@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label 'final-challenge-qa'
+        label 'final-challenge'
     }
 
     stages {
@@ -24,13 +24,13 @@ pipeline {
 
         stage('Build docker image') {
             steps {
-                sh 'docker image build -t webapp-xyz.com .'
+                sh 'docker image build -t final-challenge-webapp .'
             }
         }
 
         stage('Tag docker image') {
             steps {
-                sh 'docker image tag webapp-xyz.com scdel7/webapp-xyz.com:latest'
+                sh 'docker image tag final-challenge-webapp scdel7/final-challenge-webapp:latest'
             }
         }
 
