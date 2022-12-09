@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label 'final-challenge-pipeline'
+        label 'production'
     }
 
     stages {
@@ -24,24 +24,21 @@ pipeline {
 
         stage('Build docker image') {
             steps {
-                sh 'docker image build -t webapp-xyz.com .'
+                sh 'docker image build -t final-challenge-webapp .'
             }
         }
 
         stage('Tag docker image') {
             steps {
-                sh 'docker image tag webapp-xyz.com scdel7/webapp-xyz.com:latest'
+                sh 'docker image tag final-challenge-webapp betillo/final-challenge-webapp:latest'
             }
         }
 
         stage('Upload docker image') {
             steps {
-                withCredentials([string(credentialsId: 'docker-id', variable: 'dockerpwd')]) {
-   sh 'docker login -u scdel7 -p ${dockerpwd} '
-                sh 'docker image push scdel7/webapp-xyz.com:latest'
-}
-                
-            }
-        }
+		withCredentials([string(credentialsId: '', variable: 'docker-credentials')]) {
+		sh 'docker login -u betillo -p ${docker-credentials}'
+		sh 'docker image push betillo/final-challenge-webapp:latest'}        
+	}	
     }
-}
+} 
