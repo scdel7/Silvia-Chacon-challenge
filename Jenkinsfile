@@ -38,7 +38,7 @@ pipeline {
             steps {
                 withCredentials([string(credentialsId: 'docker-id', variable: 'dockerpwd')]) {
    sh 'docker login -u scdel7 -p ${dockerpwd} '
-                sh 'docker image push scdel7/webapp-ucreativa:latest'
+                sh 'docker image push scdel7/webapp-xyz.com:latest'
 }
                 
             }
