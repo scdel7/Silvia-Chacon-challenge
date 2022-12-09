@@ -10,7 +10,6 @@ pipeline {
                sh 'mvn -D skipTests clean install package'
             }
         }
-
         stage('Unit test') {
             steps {
                 sh 'mvn test'
