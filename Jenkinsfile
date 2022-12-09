@@ -36,8 +36,8 @@ pipeline {
 
         stage('Upload docker image') {
             steps {
-                withCredentials([string(credentialsId: 'docker-id', variable: 'dockerpwd')]) {
-   sh 'docker login -u scdel7 -p ${dockerpwd} '
+                withCredentials([string(credentialsId: 'docker-id', variable: 'docker-pwd-id2')]) {
+   sh 'docker login -u scdel7 -p ${docker-pwd-id2} '
                 sh 'docker image push scdel7/webapp-xyz.com:latest'
 }
                 
